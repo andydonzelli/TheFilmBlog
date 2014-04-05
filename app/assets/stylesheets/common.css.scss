@@ -7,6 +7,21 @@ $heading1-color: #F1F1F1;
 
 input[type="submit"] {
   @include button;
+	background-color: $hyperlink-active-color;
+	border-color: $hyperlink-active-color;
+	color: white;
+}
+
+input[type="text"] {
+	background-color: $hyperlink-hover-color;
+	border-color: $hyperlink-active-color;
+	color: white;
+}
+
+textarea {
+	background-color: $hyperlink-hover-color;
+	border-color: $hyperlink-active-color;
+	color: white;
 }
 
 div#main {
@@ -123,6 +138,8 @@ sidebarShow {
 	
 	a {color:$hyperlink-active-color;}
 	a:hover {color: $hyperlink-hover-color;};
+	
+
 }
 
 h1 {
