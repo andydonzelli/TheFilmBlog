@@ -1,0 +1,33 @@
+<%= form_for @post do |f| %>
+  <% if @post.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@post.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :film_title %>
+    <%= f.text_field :title %><br>
+  </p>
+  
+  <p>
+    <%= f.label :overall_rating %>
+    <%= f.text_area :rating %><br>
+  </p>
+  
+  <p>
+    <%= f.label :review %>
+    <%= f.text_area :body %><br>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+  
+  <br><br><br>
+<% end %>

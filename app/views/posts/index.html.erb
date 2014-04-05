@@ -1,0 +1,59 @@
+	<%= render :partial => 'layouts/header' %>
+	<style>
+		body {
+			background: #171717;
+		}
+		
+		div#main {
+			background: #171717;
+			color: #747474;
+		}
+	</style>
+	
+	<div id="main">
+	
+<div class="row">
+	<div class="large-7 columns">
+  
+	  	<h1>All Reviews...</h1>
+
+	   	<br><br><br><br>
+  
+  	  	<% @posts.each do |post| %>
+     	<br>
+      	<h2><%= post.title %></h2>
+      	<p><i><%= post.body %></i></p>
+   	  	<p><b>Overall rating: </b>
+	        <IMG SRC="/1x1-pixel.png"><IMG SRC="/1x1-pixel.png">		<!-- Movie rating goes here -->
+ 			<%= post.rating %>%
+ 	  	</p>			
+   	  	<br><br>
+	  	<%= link_to 'Full Review', post %> | 
+	  	<%= link_to 'Edit', edit_post_path(post) %> | 
+	  	<%= link_to 'Delete', post_path(post),method: :delete, data: { confirm: 'Are you sure you want to delete this review? All nested comments will also be deleted.'} %>
+	  	<HR>
+  		<% end %>
+	</div>		
+	<div class="large-2 columns"></div>				<!-- Empty collumn used to separate sidebar from review body -->
+	<div class="large-3 columns">
+		<sidebarIndex>
+			Reviewed Films...
+			<div class="row">
+				<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>
+				<div class="small-10 columns">
+					<br>
+					<% @posts.each do |post| %>
+					<p>
+						<i><%= link_to (post.title), post %></i>
+					</p>
+					<% end %>
+				</div>
+				<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>
+			</div><HR COLOR="#2E2E2E">
+			<br><br><%= link_to 'Write a review', new_post_path %>
+		</sidebarIndex>
+	</div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+</div>
+	<%= render :partial => 'layouts/footer' %>

@@ -1,0 +1,118 @@
+	<%= render :partial => 'layouts/header' %>
+	<style>
+		body {
+			background: #171717;
+		}
+		
+		div#main {
+			background: #171717;
+			color: #747474;
+		}
+	</style>
+	
+	<div id="main">
+ 
+<br><br><br><br><br><br><br>
+<div class="row">
+	<div class="small-7 columns">
+
+		<p>
+  		 	<h1><%= @post.title %></h1>		<!-- The title of the movie shown as header -->
+	  	</p>
+ 
+ 	   	<p>
+   		 	<b>Overall rating: </b>
+			<IMG SRC="/1x1-pixel.png">		<!-- Movie rating goes here -->
+			<IMG SRC="/1x1-pixel.png">
+   			<%= @post.rating %>
+   		 	%				
+ 	  	</p>
+ 
+		<p>
+  			<br><br>
+			<i><%= @post.body %>	</i>		<!-- Movie review goes here -->
+		</p>
+
+		<HR><br>
+		<% @post.comments.each do |comment| %>
+		
+		
+		<div class="row">
+			<div class="small-1 columns"><IMG SRC="/1x1-pixel.png"></div>		<!-- Empty collumn used to indent comments from review body -->
+			<div class="small-8 columns">
+	  			
+				<strong><%= comment.commenter %> said...</strong>
+    			</div>
+    		
+			<div class="small-1 columns">
+    
+				<%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' } %>
+    			</div>
+    
+			<div class="small-2 columns"></div>		<!-- empty column to reach end of page -->  
+  	 	</div>
+  
+  	  	<br>
+  	  	<div class="row">
+			<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>		<!-- Empty collumn used to indent comments from 'commenter' -->
+			<div class="small-8 columns">
+	  			<i><font color = "DimGray"><%= comment.body %></font></i>
+    			</div>
+    
+			<div class="small-2 columns"></div>			<!-- empty column to reach end of page -->
+		
+  	  	</div>
+  	  	<br><br><br>
+		<% end %>
+
+	</div>			<!-- main body column ends here -->
+	
+	
+	<div class="small-2 columns"></div>				<!-- Empty collumn used to separate sidebar from review body -->
+	
+	<div class="small-3 columns">
+		<sidebarShow>
+			<div class="row">
+				<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>
+				<div class="small-8 columns">
+					
+					<br><br><br><br>
+					<%= link_to 'Edit Review', edit_post_path(@post) %>
+					<br><br><%= link_to 'Delete Review', post_path(@post),method: :delete, data: { confirm: 'Are you sure you want to delete this post? All nested comments will also be deleted.'} %>
+					<br><HR><br>
+
+					<h6><font color="white">Add your own comment...</font></h6><br>			
+					<div class="row">
+						<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>
+						<div class="small-10 columns">
+		
+							<%= form_for([@post, @post.comments.build]) do |f| %>
+						  	<p>
+				   				<%= f.label :name %>
+				    			<%= f.text_field :commenter %>
+				  		  	  </p>
+		  		  	
+							<p>
+				    			<%= f.label :comment %>
+				    			<%= f.text_area :body %><br>
+				  		  	</p>
+		  		  	
+							<p>
+				    			<%= f.submit %>
+				  		  	</p>
+					
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="small-2 columns"><IMG SRC="/1x1-pixel.png">
+				</div>
+			</div>
+		</sidebarShow>
+	</div>
+</div>
+</div>
+
+<br><br><br><br><br>
+
+<%= render :partial => 'layouts/footer' %>

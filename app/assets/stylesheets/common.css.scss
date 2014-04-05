@@ -1,0 +1,134 @@
+$background-color:  #171717;
+$hyperlink-active-color:#753333;
+$hyperlink-hover-color: #915C5C;
+$heading2-color: #ACACAC;
+$heading1-color: #F1F1F1;
+
+
+input[type="submit"] {
+  @include button;
+}
+
+div#main {
+  @include grid-row;
+  
+	a {color:$hyperlink-active-color;}
+	a:hover {color: $hyperlink-hover-color;};
+}
+
+body {
+	background: url('/scotland-lake-background.jpg') no-repeat center center fixed; 
+	//background: url('<%= asset_path("scotland-lake-background.jpg") %> ') no-repeat center center fixed;
+    //background: url(http://31.media.tumblr.com/3fe02331c035f2d375f203f9abad6ac4/tumblr_mtws1pbqIx1rw52z6o1_1280.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover; 
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  font-size: 14px;
+  padding-top: 8px;
+  margin-top: 45px;
+  background-color: $background-color;
+  color: white;
+  text-align: center;
+  p {
+    line-height: 20px;
+  }
+  
+	a {color:white;}
+	a:hover {color: $hyperlink-active-color;};
+}
+
+.top-bar {
+	
+	background-color: $background-color;
+}
+.top-bar .name h1 a {
+	color:  $hyperlink-active-color;
+	font-size: 30px;
+}
+
+.top-bar-section li a:not(.button) {
+	color: $hyperlink-active-color;
+    background: $background-color;
+}
+
+.top-bar-section li a:not(.button):hover {
+    background: scale-color($background-color, $lightness: +6%);
+}
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+   border-left: solid 1px #2E2E2E;
+   border-right: solid 1px #2E2E2E;
+}
+
+
+welcomebar {
+	//font: typewriter;
+	position: fixed;
+    width: 100%;
+    font-size: 16px;
+    padding-top: 25px;
+//  background-color: #000;
+//	opacity:0.6;
+//  color: #eee;
+ 	text-align: center;
+    
+    p {
+	  padding-top: 1%;
+	  font-color: gray;
+      line-height: 40px;
+	  font-size: 24px;
+    }
+	
+	a {color:$hyperlink-active-color;}
+	a:hover {color: $hyperlink-hover-color;};
+	
+}
+
+sidebarIndex {
+	position: fixed;
+//  background: lightgray;
+	font-color: #ACACAC;
+	
+	width: 25%;
+    padding: 14px;
+    margin-top: 15%;
+	
+	border-style: solid;
+	border-color: #747474;
+	border-width: 1px;
+	
+	a {color:$hyperlink-active-color;}
+	a:hover {color: $hyperlink-hover-color;};
+}
+
+sidebarShow {
+	position: fixed;
+//  background: lightgray;
+	font-color: #ACACAC;
+	
+	width: 25%;
+    padding: 0;
+    margin-top: 5%;
+	
+	border-style: solid;
+	border-color: #747474;
+	border-width: 1px;
+	
+	a {color:$hyperlink-active-color;}
+	a:hover {color: $hyperlink-hover-color;};
+}
+
+h1 {
+	color: $heading1-color;
+}
+
+h2 {
+	color: $heading2-color;
+}
