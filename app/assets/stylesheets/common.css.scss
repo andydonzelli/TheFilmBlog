@@ -1,32 +1,35 @@
 $background-color:  #171717;
 $hyperlink-active-color:#753333;
+$hyperlink-active-color:#AC1C1D;
 $hyperlink-hover-color: #915C5C;
-$heading2-color: #ACACAC;
-$heading1-color: #F1F1F1;
+$heading2-color: dark grey;
+$heading1-color: black;
 
 
 input[type="submit"] {
-  @include button;
+  	@include button;
 	background-color: $hyperlink-active-color;
 	border-color: $hyperlink-active-color;
 	color: white;
 }
 
+input[type="submit"]:hover {
+	background-color: black;
+}
+
 input[type="text"] {
 	background-color: $hyperlink-hover-color;
 	border-color: $hyperlink-active-color;
-	color: white;
 }
 
 textarea {
 	background-color: $hyperlink-hover-color;
 	border-color: $hyperlink-active-color;
-	color: white;
 }
 
 div#main {
-  @include grid-row;
-  
+  	@include grid-row;
+  	background-color: white !important;
 	a {color:$hyperlink-active-color;}
 	a:hover {color: $hyperlink-hover-color;};
 }
@@ -39,52 +42,53 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover; 
+	
+	background-color: white !important;
+	
+	p {
+		color: grey !important;
+		//white-space: pre-line;
+	}
+	
+	pBody{
+		white-space: pre-line;
+		font-family: "Avenir Next";
+		font-size: 16pt;
+		text-align: left;
+		font-style: italic;
+		color: black !important;
+		line-height: 175%;
+	}
+	
+	pComment{
+		color: dim-grey;
+		font-style: italic;
+		line-height:125%;
+	}
 }
 
 footer {
-  position: fixed;
-  width: 100%;
-  bottom: 0;
-  font-size: 14px;
-  padding-top: 8px;
-  margin-top: 45px;
-  background-color: $background-color;
-  color: white;
-  text-align: center;
-  p {
-    line-height: 20px;
-  }
+	position: fixed;
+	width: 100%;
+	left: 0;
+	bottom: 0;
+	font-size: 14px;
+	padding-top: 7px;
+	margin-top: 25px;
+	background-color: $background-color;
+	text-align: center;
+  
+	p {
+    	line-height: 20px;
+		color: white !important;
+  	}
   
 	a {color:white;}
 	a:hover {color: $hyperlink-active-color;};
 }
 
-.top-bar {
-	
-	background-color: $background-color;
-}
-.top-bar .name h1 a {
-	color:  $hyperlink-active-color;
-	font-size: 30px;
-}
-
-.top-bar-section li a:not(.button) {
-	color: $hyperlink-active-color;
-    background: $background-color;
-}
-
-.top-bar-section li a:not(.button):hover {
-    background: scale-color($background-color, $lightness: +6%);
-}
-
-.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
-   border-left: solid 1px #2E2E2E;
-   border-right: solid 1px #2E2E2E;
-}
-
 
 welcomebar {
-	//font: typewriter;
 	position: fixed;
     width: 100%;
     font-size: 16px;
@@ -95,10 +99,11 @@ welcomebar {
  	text-align: center;
     
     p {
-	  padding-top: 1%;
-	  font-color: gray;
-      line-height: 40px;
-	  font-size: 24px;
+	 	padding-top: 1%;
+		font-color: gray;
+    	line-height: 40px;
+		font-size: 24px;
+		font-family: "Avenir Next";
     }
 	
 	a {color:$hyperlink-active-color;}
@@ -126,7 +131,6 @@ sidebarIndex {
 sidebarShow {
 	position: fixed;
 //  background: lightgray;
-	font-color: #ACACAC;
 	
 	width: 25%;
     padding: 0;
@@ -139,13 +143,52 @@ sidebarShow {
 	a {color:$hyperlink-active-color;}
 	a:hover {color: $hyperlink-hover-color;};
 	
+	p{
+	font-family: "Avenir Next";
+	color: black !important;
+	}
 
 }
 
 h1 {
+	font-size: 42px;
 	color: $heading1-color;
+	text-align: center;
+	font-family: "Avenir Next";
 }
 
 h2 {
+	font-size: 30px;
 	color: $heading2-color;
+	font-family: "Avenir Next";
+}
+
+
+
+
+
+
+.top-bar {
+	
+	background-color: $background-color;
+}
+
+.top-bar .name h1 a {
+	color:  $hyperlink-active-color;
+	font-size: 30px;
+	font-family: "Avenir Next";
+}
+
+.top-bar-section li a:not(.button) {
+	color: $hyperlink-active-color;
+    background: $background-color;
+}
+
+.top-bar-section li a:not(.button):hover {
+    background: scale-color($background-color, $lightness: +6%);
+}
+
+.top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
+   border-left: solid 1px #2E2E2E;
+   border-right: solid 1px #2E2E2E;
 }

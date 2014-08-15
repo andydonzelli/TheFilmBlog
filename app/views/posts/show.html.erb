@@ -12,26 +12,24 @@
 	
 	<div id="main">
  
-<br><br><br><br><br><br><br>
-<div class="row">
-	<div class="small-7 columns">
 
+<div class="row">
+	<div class="small-9 columns">
+		<br><br>
 		<p>
   		 	<h1><%= @post.title %></h1>		<!-- The title of the movie shown as header -->
 	  	</p>
  
  	   	<p>
-   		 	<b>Overall rating: </b>
-			<IMG SRC="/1x1-pixel.png">		<!-- Movie rating goes here -->
-			<IMG SRC="/1x1-pixel.png">
+   		 	<b>Overall rating: </b>			<!-- Movie rating goes here -->
+			
    			<%= @post.rating %>
-   		 	%				
+			%				
  	  	</p>
- 
-		<p>
-  			<br><br>
-			<i><%= @post.body %>	</i>		<!-- Movie review goes here -->
-		</p>
+ 			
+		<pBody>
+			<%= @post.body %>			<!-- Movie review goes here -->
+		</pBody>
 
 		<HR><br>
 		<% @post.comments.each do |comment| %>
@@ -56,7 +54,7 @@
   	  	<div class="row">
 			<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>		<!-- Empty collumn used to indent comments from 'commenter' -->
 			<div class="small-8 columns">
-	  			<i><font color = "DimGray"><%= comment.body %></font></i>
+				<pComment><%= comment.body %></pComment>
     			</div>
     
 			<div class="small-2 columns"></div>			<!-- empty column to reach end of page -->
@@ -67,8 +65,6 @@
 
 	</div>			<!-- main body column ends here -->
 	
-	
-	<div class="small-2 columns"></div>				<!-- Empty collumn used to separate sidebar from review body -->
 	
 	<div class="small-3 columns">
 		<sidebarShow>
@@ -81,7 +77,7 @@
 					<br><br><%= link_to 'Delete Review', post_path(@post),method: :delete, data: { confirm: 'Are you sure you want to delete this post? All nested comments will also be deleted.'} %>
 					<br><HR><br>
 
-					<h6><font color="white">Add your own comment...</font></h6><br>			
+					<h6>Add your own comment...</h6><br>			
 					<div class="row">
 						<div class="small-2 columns"><IMG SRC="/1x1-pixel.png"></div>
 						<div class="small-10 columns">
